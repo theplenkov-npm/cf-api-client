@@ -82,6 +82,25 @@ To onboard a new resource you need to:
 
 ## Utility types
 
+### Resource<T>
+
+CF [API Resource](https://v3-apidocs.cloudfoundry.org/version/3.181.0/#api-resource) contains required fields. Just to avoid repeating them in every resource we can use a generic type.
+
+```ts
+export interface ServiceInstanceResource extends Resource<ServiceInstanceEntity> {
+  ...
+}
+```
+
+which will add following types to a resource:
+
+```ts
+guid: uuid;
+created_at: timestamp;
+updated_at: timestamp;
+links: links;
+```
+
 ### PaginatedResponse<T>
 
 Almost every CF resource supports list operations with paginated responses. To unify the way we handle them a special utility type is provided.

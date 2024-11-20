@@ -1,4 +1,5 @@
 # Cloud Foundry API client
 
 List of packages:
-- [cf-api-client](/packages/cf-api-client)
+
+- [cf-api-client](/packages/cf-api-client/README.md)
