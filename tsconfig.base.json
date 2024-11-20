@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "cf-api-client": ["packages/cf-api-client/src/index.ts"]
+      "@cloudfoundry/api": ["packages/cf-api-client/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
