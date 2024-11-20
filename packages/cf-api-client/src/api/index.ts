@@ -2,6 +2,7 @@ import axios, { AxiosInstance } from 'axios';
 import QueryString from 'qs';
 import { ServiceInstanceAPI } from './resources/service_instances/api';
 import { ServiceCredentialBindingAPI } from './resources/service_credential_bindings/api';
+import { OrganizationAPI } from './resources/organizations/api';
 
 interface CloudFoundryClientOptions {
   apiEndpoint: string;
@@ -12,6 +13,7 @@ export class CloudFoundryClient {
   private client: AxiosInstance;
   serviceCredentialBinding: ServiceCredentialBindingAPI;
   serviceInstances: ServiceInstanceAPI;
+  organizations: OrganizationAPI;
 
   constructor(options: CloudFoundryClientOptions) {
     this.client = axios.create({
@@ -27,5 +29,6 @@ export class CloudFoundryClient {
       this.client
     );
     this.serviceInstances = new ServiceInstanceAPI(this.client);
+    this.organizations = new OrganizationAPI(this.client);
   }
 }
