@@ -1,6 +1,6 @@
 const { withNx } = require('@nx/rollup/with-nx');
 
-const packageRoot = '/packages/cf-api-client';
+const packageRoot = 'packages/cf-api-client';
 
 module.exports = withNx(
   {
@@ -9,7 +9,10 @@ module.exports = withNx(
     tsConfig: './tsconfig.lib.json',
     compiler: 'tsc',
     format: ['cjs', 'esm'],
-    assets: [{ input: packageRoot, output: '.', glob: '*.md' }],
+    assets: [
+      { input: packageRoot, output: '.', glob: '*.md' },
+      { input: packageRoot + '/docs/img', output: './docs/img', glob: '*.png' },
+    ],
     external: 'all',
   },
   {
