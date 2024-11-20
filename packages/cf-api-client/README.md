@@ -150,6 +150,7 @@ as a result in your code you'll be able to use like this:
 ```
 
 A nice feature is that you'll be able to use autocomplete in your IDE.
+
 ![alt text](./docs/img/allowed_fields_autocomlete.png)
 
 and as a result this code will trigger the URL like this (formatted for better understanding):
