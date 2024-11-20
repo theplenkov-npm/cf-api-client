@@ -6,18 +6,12 @@ This is a client for interacting with the Cloud Foundry API.
 >
 > Luckily it will very simple to contribute. Please read contribution guide below.
 
-## Installation
-
-```bash
-npm i cf-api-client
-```
-
 ## Usage
 
 This library delivers a class, `CloudFoundryClient`, which can be used to interact with the Cloud Foundry API. It composes resources apis as nested clients.
 
 ```ts
-import { CloudFoundryClient } from 'cf-api-client';
+import { CloudFoundryClient } from '@cloudfoundry/api';
 const client = new CloudFoundryClient({
   apiEndpoint: 'https://api.cf.us10-001.hana.ondemand.com',
   accessToken: 'bearer your_access_token',
@@ -31,7 +25,11 @@ console.log(JSON.stringify(services.data, null, 2));
 For local testing, you can use the `getOauthToken` function to retrieve a new token and `getCFConfig` to retrieve target from CF CLI config.
 
 ```ts
-import { getOauthToken, getCFConfig, CloudFoundryClient } from 'cf-api-client';
+import {
+  getOauthToken,
+  getCFConfig,
+  CloudFoundryClient,
+} from '@cloudfoundry/api';
 const config = await getCFConfig();
 const token = await getOauthToken(config.Target);
 const client = new CloudFoundryClient({
@@ -52,7 +50,7 @@ const client = new CloudFoundryClient({
 getCFConfig allow you to read `~/.cf/config.json` and return as a fully-typed object.
 
 ```ts
-import { getCFConfig } from 'cf-api-client';
+import { getCFConfig } from '@cloudfoundry/api';
 const config = await getCFConfig();
 console.log(config.Target);
 ```
@@ -63,7 +61,7 @@ To get a new token for local testing we're supposed to call `cf oauth-token`.
 With a following code we can do the same programmatically.
 
 ```ts
-import { getOauthToken } from 'cf-api-client';
+import { getOauthToken } from '@cloudfoundry/api';
 const token = await getOauth();
 console.log(token);
 ```

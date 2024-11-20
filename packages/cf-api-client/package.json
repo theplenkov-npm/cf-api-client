@@ -11,5 +11,9 @@
     "type": "git",
     "url": "git+https://github.com/theplenkov-npm/cf-api-client.git",
     "directory": "packages/cf-api-client"
-  }
+  },
+  "keywords": [
+    "cloudfoundry",
+    "cf"
+  ]
 }

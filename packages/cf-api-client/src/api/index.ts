@@ -3,16 +3,21 @@ import QueryString from 'qs';
 import { ServiceInstanceAPI } from './resources/service_instances/api';
 import { ServiceCredentialBindingAPI } from './resources/service_credential_bindings/api';
 
+interface CloudFoundryClientOptions {
+  apiEndpoint: string;
+  accessToken: string;
+}
+
 export class CloudFoundryClient {
   private client: AxiosInstance;
   serviceCredentialBinding: ServiceCredentialBindingAPI;
   serviceInstances: ServiceInstanceAPI;
 
-  constructor(apiEndpoint: string, accessToken: string) {
+  constructor(options: CloudFoundryClientOptions) {
     this.client = axios.create({
-      baseURL: apiEndpoint,
+      baseURL: options.apiEndpoint,
       headers: {
-        Authorization: accessToken,
+        Authorization: options.accessToken,
       },
       paramsSerializer: function (params) {
         return QueryString.stringify(params, { arrayFormat: 'comma' });
