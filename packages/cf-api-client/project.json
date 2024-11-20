@@ -22,7 +22,7 @@
       "executor": "@nx/vite:test",
       "outputs": ["{options.reportsDirectory}"],
       "options": {
-        "reportsDirectory": "../../coverage/packages/cf-api-client"
+        "reportsDirectory": "{workspaceRoot}/coverage/{projectRoot}"
       }
     }
   }
