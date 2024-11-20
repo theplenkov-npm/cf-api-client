@@ -19,28 +19,21 @@
 // created_at	timestamp	The time with zone when the operation started
 // updated_at	timestamp	The time with zone when the operation was last update
 
-import {
-  links,
-  metadata,
-  timestamp,
-  to_one_relationship,
-  uuid,
-} from '../common';
+import { metadata, timestamp, to_one_relationship } from '../common';
+import { Resource } from '../resource';
 
-export interface ServiceCredentialBinding {
-  guid: uuid;
+interface ServiceCredentialBindingData {
   name: string;
   type: 'app' | 'key';
   last_operation: last_operation;
-  created_at: timestamp;
-  updated_at: timestamp;
   metadata: metadata;
   relationships: {
     service_instance: to_one_relationship;
     app: to_one_relationship;
   };
-  links: links;
 }
+
+export type ServiceCredentialBinding = Resource<ServiceCredentialBindingData>;
 
 interface last_operation {
   type: 'create' | 'delete';

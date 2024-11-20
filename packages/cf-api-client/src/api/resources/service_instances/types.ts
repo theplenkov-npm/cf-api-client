@@ -17,18 +17,10 @@
 // metadata.annotations	annotation object	Annotations applied to the service instance
 // links	links object	Links to related resources
 
-import {
-  links,
-  metadata,
-  timestamp,
-  to_one_relationship,
-  uuid,
-} from '../common';
+import { metadata, timestamp, to_one_relationship } from '../common';
+import { Resource } from '../resource';
 
-export interface ServiceInstance {
-  guid: uuid;
-  created_at: timestamp;
-  updated_at: timestamp;
+interface ServiceInstanceFields {
   name: string;
   type: 'managed' | 'user-provided';
   tags: string[];
@@ -40,8 +32,9 @@ export interface ServiceInstance {
   last_operation?: ServiceInstanceLastOperation;
   relationships: ServiceInstanceRelationships;
   metadata: metadata;
-  links: links;
 }
+
+export type ServiceInstance = Resource<ServiceInstanceFields>;
 
 export interface ServiceInstanceMaintenanceInfo {
   version: string;
