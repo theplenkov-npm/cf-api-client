@@ -4,7 +4,7 @@ This is a client for interacting with the Cloud Foundry API.
 
 > This project is still in development, which means only few resourcess is implemented.
 >
-> Luckily it will very simple to contribute. Please read contribution guide below.
+> Luckily it is very simple to contribute. Please read the contribution guide below.
 
 ## Usage
 
@@ -66,7 +66,7 @@ const token = await getOauth();
 console.log(token);
 ```
 
-# Contribution Guide
+## Contribution Guide
 
 To onboard a new resource you need to:
 
@@ -82,7 +82,7 @@ To onboard a new resource you need to:
 
 ## Utility types
 
-### PaginatedResponse
+### PaginatedResponse<T>
 
 Almost every CF resource supports list operations with paginated responses. To unify the way we handle them a special utility type is provided.
 
@@ -95,7 +95,7 @@ Almost every CF resource supports list operations with paginated responses. To u
     }) => this.client.get<PaginatedResponse<ServiceCredentialBinding>>('/v3/service_credential_bindings', { params })
 ```
 
-### AllowedFields
+### AllowedFields<T>
 
 Some endpoints support a special [fields](https://v3-apidocs.cloudfoundry.org/version/3.181.0/index.html#fields-parameter) query parameter, which allows to specify which fields should be returned.
 
