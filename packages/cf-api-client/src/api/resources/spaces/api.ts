@@ -1,5 +1,6 @@
 import { BaseClient } from '../base';
 import { PaginatedResponse, timestamp } from '../common';
+import { User } from '../users/types';
 import { Space } from './types';
 
 export class SpaceAPI extends BaseClient {

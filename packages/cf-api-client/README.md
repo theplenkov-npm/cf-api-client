@@ -44,6 +44,7 @@ const client = new CloudFoundryClient({
 - Service Credential Bindings
 - Organizations
 - Spaces
+- Users
 
 ## Advanced programming
 

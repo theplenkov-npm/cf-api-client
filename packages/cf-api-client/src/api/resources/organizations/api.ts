@@ -1,5 +1,6 @@
 import { BaseClient } from '../base';
-import { AllowedFields, PaginatedResponse, timestamp } from '../common';
+import { PaginatedResponse, timestamp } from '../common';
+import { User } from '../users/types';
 import { Organization } from './types';
 
 export class OrganizationAPI extends BaseClient {
@@ -9,13 +10,6 @@ export class OrganizationAPI extends BaseClient {
     metadata?: {
       labels?: { [key: string]: string };
       annotations?: { [key: string]: string };
-    };
-    relationships?: {
-      quota?: {
-        data: {
-          guid: string;
-        };
-      };
     };
   }) => this.client.post<Organization>('/v3/organizations', data);
 
@@ -29,7 +23,6 @@ export class OrganizationAPI extends BaseClient {
     per_page?: number;
     order_by?: string;
     label_selector?: string;
-    fields?: AllowedFields<allowed_fields>;
     created_ats?: timestamp[];
     updated_ats?: timestamp[];
   }) =>
@@ -50,8 +43,25 @@ export class OrganizationAPI extends BaseClient {
   ) => this.client.patch<Organization>(`/v3/organizations/${guid}`, data);
 
   delete = (guid: string) => this.client.delete(`/v3/organizations/${guid}`);
+  getUsers = (
+    guid: string,
+    params?: {
+      guids?: string[];
+      usernames?: string[];
+      partial_usernames?: string[];
+      origins?: string[];
+      page?: number;
+      per_page?: number;
+      order_by?: string;
+      label_selector?: string;
+      created_ats?: timestamp[];
+      updated_ats?: timestamp[];
+    }
+  ) =>
+    this.client.get<PaginatedResponse<User>>(
+      `/v3/organizations/${guid}/users`,
+      {
+        params,
+      }
+    );
 }
-
-type allowed_fields = {
-  quota: ['guid', 'name', 'apps', 'services', 'routes', 'domains'];
-};
