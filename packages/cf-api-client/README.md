@@ -81,7 +81,17 @@ To onboard a new resource you need to:
 - api client should be exported in `src/api/resources/index.ts`
 - please try to utilize shared types whenever possible (defined in `src/api/resources/common.ts`)
 - please return the result as a result of the axios ( this.client ) call, so we can get not only data as a result
-- As a developer I personally prefer to develop with Sourcegraph Cody, and asking it to generate APIs following patterns from another files in a context
+
+## How GPT can help
+
+As a developer I personally prefer to develop with Sourcegraph Cody, and asking it to generate APIs following patterns from another files in a context
+Here is the example how to generate new resources
+![image](https://github.com/user-attachments/assets/bbdb820e-80a4-4db5-800c-6c27b49b0175)
+So basically you need to join your own way of building the app ( the pattern ) and the knowledge of LLM. Then in the end you just need to review what is generated is true instead of writing this code manually. 
+It takes less than 5 mintues to implement a new resource type.
+
+
+
 
 ## Utility types
 
