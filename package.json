@@ -1,6 +1,6 @@
 {
   "name": "root",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "List of packages: - [cf-api-client](/packages/cf-api-client)",
   "private": true,
   "scripts": {
